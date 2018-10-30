@@ -103,9 +103,11 @@ def main():
 
     with open( sys.argv[1] , 'r' ) as text:
         text_lines = [line.rstrip() for line in text]
+    # for testing
     if len(sys.argv) == 3:
         for line , answer in itertools.izip(text_lines , answers_list):
             print('input: {}    Expected: {}     Got: {}'.format(line , answer , check_brackets(line)))
+    # for actual running
     else:
         for line in text_lines:
             print(check_brackets(line))
