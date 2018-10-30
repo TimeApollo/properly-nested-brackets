@@ -5,7 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "pulling in file",
+            "name": "local test",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "samples.txt",
+                "--test"
+            ]
+        },
+        {
+            "name": "actual run",
             "type": "python",
             "request": "launch",
             "program": "${file}",
@@ -13,13 +24,6 @@
             "args": [
                 "samples.txt"
             ]
-        },
-        {
-            "name": "Python: Attach",
-            "type": "python",
-            "request": "attach",
-            "port": 5678,
-            "host": "localhost"
         },
         {
             "name": "Python: Module",

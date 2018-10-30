@@ -97,14 +97,20 @@ def check_brackets( text_line ):
     return 'YES'
 
 def main():
-    if len(sys.argv) != 2:
-        print('usage: python brackets.py file-to-read')
+    if len(sys.argv) > 3 or len(sys.argv) < 2:
+        print('usage: python brackets.py file-to-read  { --test }')
         sys.exit(1)
 
     with open( sys.argv[1] , 'r' ) as text:
         text_lines = [line.rstrip() for line in text]
-    for line , answer in itertools.izip(text_lines , answers_list):
-        print('input: {}    Expected: {}     Got: {}'.format(line , answer , check_brackets(line)))
+    if len(sys.argv) == 3:
+        for line , answer in itertools.izip(text_lines , answers_list):
+            print('input: {}    Expected: {}     Got: {}'.format(line , answer , check_brackets(line)))
+    else:
+        for line in text_lines:
+            print(check_brackets(line))
+    
+    
         
 
 if __name__ == '__main__':
